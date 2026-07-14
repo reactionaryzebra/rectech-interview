@@ -14,15 +14,20 @@
    ```
    npm run db:migrate
    ```
-3. Start the API (Express, on http://localhost:3001):
+3. Seed the database with sample data (5 programs, 2 sections each — some with age eligibility rules and/or a sibling discount, with varying capacities so you can exercise the waitlist):
+   ```
+   npm run db:seed
+   ```
+   Safe to re-run — it wipes and recreates the seeded programs/sections/rules each time.
+4. Start the API (Express, on http://localhost:3001):
    ```
    npm run dev:api
    ```
-4. In a separate terminal, start the web app (Vite, on http://localhost:5173):
+5. In a separate terminal, start the web app (Vite, on http://localhost:5173):
    ```
    npm run dev:web
    ```
-5. Open http://localhost:5173 in a browser. The web app calls the API through the dev server's `/api` proxy.
+6. Open http://localhost:5173 in a browser. The web app calls the API through the dev server's `/api` proxy.
 
 Auth, payment, and email/notifications are mocked in v0 per the MVP spec, so no additional credentials or services are needed to run locally.
 

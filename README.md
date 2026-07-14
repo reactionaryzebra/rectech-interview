@@ -1,5 +1,8 @@
 # Rec interview program
 
+## Loom
+https://www.loom.com/share/fb3ae83c573740249cf8dda4837394da
+
 ## HOWTO
 
 ### Prerequisites

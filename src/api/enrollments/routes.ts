@@ -6,15 +6,9 @@ import { evaluateEligibility, type EligibilityRuleInput } from "../lib/eligibili
 import { computePrice, type DiscountInput } from "../lib/discounts.js";
 import { countByStatus, countHouseholdEnrolled } from "./queries.js";
 import { promoteWaitlistForSection } from "./promote.js";
+import type { EnrollResult } from "../../shared/types.js";
 
 export const enrollmentsRouter = Router();
-
-type EnrollResult =
-  | { participant_id: number; result: "enrolled"; enrollment: { id: number; price_charged: number | null; discount_id: number | null } }
-  | { participant_id: number; result: "waitlisted"; enrollment: { id: number; position: number | null } }
-  | { participant_id: number; result: "ineligible"; reason?: string }
-  | { participant_id: number; result: "already_enrolled" }
-  | { participant_id: number; result: "waitlist_full" };
 
 enrollmentsRouter.post("/sections/:id/enrollments", async (req, res) => {
   const sectionId = Number(req.params.id);
